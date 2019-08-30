@@ -14,27 +14,31 @@
       <h2 class="col-md-8">
         Private Events
       </h2>
+
       <%if logged_in?%>
        <div class="col-md-4">
-       <div class="col-md-8">
-       <p class="profile-name">
-        Hi
-        <%= current_user.username%>!
-        </p>
-        </div>
-        <div class="col-md-4">
-          <%=form_for :sessions, url: logout_path,method: :delete do |f|%>
-          <%=f.submit 'Log out',class: "btn btn-danger float-right"%>
-        <%end%>
-        </div>
-      <%else%>
-     
-        <%=link_to 'Log in',login_path,class: "btn btn-default" %>
-         <%=link_to 'Register',{controller: 'users', action: 'new'},class: "btn btn-default"%>
-        <%end%>
+          <div class="col-md-8">
+            <p class="profile-name">
+              Hi <%= current_user.name%>!
+            </p>
+            <%= link_to "Show all events", events_path, class: "btn btn-default" %>
+            <%= link_to "Create new event", new_event_path, class: "btn btn-default" %>
+            <%= link_to "Users", users_path, class: "btn btn-default" %>
+          </div>
+          <div class="col-md-4">
+            <%=form_for :sessions, url: logout_path,method: :delete do |f|%>
+               <%=f.submit 'Log out',class: "btn btn-danger float-right"%>
+            <%end%>
+          </div>
+        <%else%>
+      
+          <%=link_to 'Log in',login_path,class: "btn btn-default" %>
+          <%=link_to 'Register',{controller: 'users', action: 'new'},class: "btn btn-default"%>
+          <%end%>
       </div>
     
     </header>
+
     <%flash.each do |type, message|%>
       <div class="<%=type%>"><%= message%></div>
     <%end%>
