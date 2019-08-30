@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by(username: params[:session][:name])
+    @user = User.find_by(username: params[:session][:name].downcase)
     if @user
       login @user
       redirect_to user_path @user
     else
-      flash[:error] = 'User name is wrong!'
+      flash[:danger] = 'User name is wrong!'
       redirect_to login_path
     end
   end

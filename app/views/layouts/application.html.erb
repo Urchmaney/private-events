@@ -10,8 +10,33 @@
   </head>
 
   <body>
+    <header class="row">
+      <h2 class="col-md-8">
+        Private Events
+      </h2>
+      <%if logged_in?%>
+       <div class="col-md-4">
+       <div class="col-md-8">
+       <p class="profile-name">
+        Hi
+        <%= current_user.username%>!
+        </p>
+        </div>
+        <div class="col-md-4">
+          <%=form_for :sessions, url: logout_path,method: :delete do |f|%>
+          <%=f.submit 'Log out',class: "btn btn-danger float-right"%>
+        <%end%>
+        </div>
+      <%else%>
+     
+        <%=link_to 'Log in',login_path,class: "btn btn-default" %>
+         <%=link_to 'Register',{controller: 'users', action: 'new'},class: "btn btn-default"%>
+        <%end%>
+      </div>
+    
+    </header>
     <%flash.each do |type, message|%>
-      <div><%= message%></div>
+      <div class="<%=type%>"><%= message%></div>
     <%end%>
     <%= yield %>
   </body>

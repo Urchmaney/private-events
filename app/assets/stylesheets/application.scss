@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.profile-name{
+    font-size:20px;
+    float:right;
+    text-transform: capitalize;
+}
+
+ header{
+     height:100px;
+     background-color: #2e2e2e;
+     padding-left:10%;
+     padding-right:10%;
+     padding-top:25px;
+     color:white;
+     h2{
+         margin:0;
+     }
+     div{
+         a{
+             float:right;
+             margin-left:5px;
+         }
+     }
+ }
