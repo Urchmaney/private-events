@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by_name(params[:session][:name])
-    if @user&.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
+    @user = User.find_by(username: params[:session][:name])
+    if @user
+      login @user
       redirect_to user_path @user
     else
-      flash[:error] = 'Email or password is wrong!'
+      flash[:error] = 'User name is wrong!'
       redirect_to login_path
     end
   end
@@ -17,8 +17,7 @@ class SessionsController < ApplicationController
   
 
   def destroy
-    session.delete(:user_id)
-    @current_user = nil
+    logout
     redirect_to login_path
   end
 

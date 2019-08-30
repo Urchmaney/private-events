@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path @user
     else
+      flash.now[:danger]= @user.errors.full_messages
       render :new
     end
   end
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:username, :email)
   end
 end
