@@ -13,13 +13,13 @@
     <header class="row">
       <h2 class="col-md-8">
         Private Events
-      </h2>
-      <%if logged_in?%>
+      </h2>      
        <div class="col-md-4">
-       <div class="col-md-8">
-       <p class="profile-name">
-        Hi
-        <%= current_user.username%>!
+       <%if logged_in?%>
+        <div class="col-md-8">
+         <p class="profile-name">
+           Hi
+          <%= current_user.username%>!
         </p>
         </div>
         <div class="col-md-4">
@@ -28,9 +28,10 @@
         <%end%>
         </div>
       <%else%>
-     
-        <%=link_to 'Log in',login_path,class: "btn btn-default" %>
+        <div>
+         <%=link_to 'Log in',login_path,class: "btn btn-default" %>
          <%=link_to 'Register',{controller: 'users', action: 'new'},class: "btn btn-default"%>
+        </div>
         <%end%>
       </div>
     

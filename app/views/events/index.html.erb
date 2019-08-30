@@ -5,7 +5,7 @@
     Title: <%= e.description%>
     Date: <%= e.date%>
     <%= link_to 'Show event', event_path(e)%> 
-    <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %> %>
   </li>
   <% end %>
 </ul>
@@ -16,7 +16,7 @@
     Title: <%= e.description%>
     Date: <%= e.date%>
     <%= link_to 'Show event', event_path(e)%> 
-    <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %> %>
   </li>
   <% end %>
 </ul>
