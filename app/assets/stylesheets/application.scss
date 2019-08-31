@@ -16,10 +16,97 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.float-right{
+    float:right;
+}
+
 .profile-name{
     font-size:20px;
     float:right;
     text-transform: capitalize;
+}
+
+.my-jumbotron{
+    width:80%;
+    margin:auto;
+    margin-top:20px;
+    font-size: 20px;
+    padding : 20px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+
+.underline{
+    text-decoration: underline
+}
+
+.my-dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+  .my-dropdown-content {
+    display: none;
+    position: absolute;
+    top :33px;
+    left : 5px;
+    background-color: #e6e6e6;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding:0;
+    z-index: 1;
+  }
+
+  .my-dropdown-content-item{
+      float: left;
+      display:block;
+      width:100%;
+      padding:10px;
+      margin:0;
+      border-bottom: 1px solid gray;
+      color : black;
+
+  }
+  .my-dropdown-content-item:hover{
+      background-color: gray;
+  }
+
+  .my-dropdown:hover .my-dropdown-content {
+    display: block;
+  }
+
+
+.event-container{
+    list-style: none;
+    padding:0;
+    position: relative;
+
+    .event-date{
+        font-size:10px;
+        color:blue;
+    }
+    .event-description{
+        font-size: 20px;
+        color:gray;
+    }
+    li{
+        border:1px solid gray;
+        border-radius: 5px;
+        padding: 5px;
+        margin-top:5px;
+    }
+    a{
+        float:right;
+    }
+    input{
+        position: absolute;
+        top:20px;
+        right:70px;
+    }
 }
 
  header{

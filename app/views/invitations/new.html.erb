@@ -1,0 +1,10 @@
+  <div class="col-md-4 col-md-offset-4">
+<h1 class="text-center">Send Invitation</h1>
+<%= form_for(@invitation) do |f|%>
+<%= f.label 'Event'%><br>
+<%= f.collection_select :invitation_event_id,current_user.events,:id,:description, {:include_blank => "Select Event"}, class: 'form-control'%><br>
+<%= f.label 'Attendee'%><br>
+<%= f.collection_select :invitation_user_id,User.all,:id,:username, {:include_blank => "Select Attendee"}, class: 'form-control'%><br>
+<%= f.submit 'Send invitation', class: 'form-control btn-primary'%>
+<% end %>
+</div>

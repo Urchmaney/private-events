@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
-    before_action :user_logged_in?, only: %i[new create]
+    before_action :logged_in_user, only: %i[new create]
   
     def index
       @events = Event.all
+      @past = Event.past
+      @upcoming = Event.upcoming
     end
   
     def show

@@ -12,7 +12,8 @@
   <body>
     <header class="row">
       <h2 class="col-md-8">
-        Private Events
+        <%=link_to 'Private Events', root_path%>
+        
       </h2>      
        <div class="col-md-4">
        <%if logged_in?%>
@@ -21,6 +22,19 @@
            Hi
           <%= current_user.username%>!
         </p>
+       <div class="my-dropdown">
+        <a class="btn btn-default" href="#" role="button">
+          Events <img src= "<%=asset_path 'dd.svg'%>" height="20" width="20">
+        </a>
+
+        <div class="my-dropdown-content" aria-labelledby="dropdownMenuLink">
+          <%=link_to 'Home', {:controller => :users, :action => :show},class: "my-dropdown-content-item"%>
+          <%=link_to 'Create Event', {:controller => :events, :action => :new},class: "my-dropdown-content-item"%>
+          <%=link_to 'All Event', {:controller => :events, :action => :index},class: "my-dropdown-content-item"%>
+          <%=link_to 'Send Invitation', {:controller => :invitations, :action => :new},class: "my-dropdown-content-item"%>
+          <%=link_to 'Invitations', {:controller => :invitations, :action => :index},class: "my-dropdown-content-item"%>
+        </div>
+      </div>
         </div>
         <div class="col-md-4">
           <%=form_for :sessions, url: logout_path,method: :delete do |f|%>
@@ -36,9 +50,13 @@
       </div>
     
     </header>
-    <%flash.each do |type, message|%>
-      <div class="<%=type%>"><%= message%></div>
-    <%end%>
+
+      <div class='container'>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    
+    </div>
     <%= yield %>
   </body>
 </html>

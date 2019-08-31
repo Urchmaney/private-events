@@ -1,15 +1,27 @@
-<ul>
-  <li> Creator: <%= @event.creator.name%></li>
-  <li> Description: <%= @event.description%></li>
-  <li> Date: <%= @event.date%></li>
-  <li>Attendees:
-    <ul>
-      <% @event.attendees.each do |a|%>
-      <li>
-        <%= a.name%>
-      </li>
+<div class="my-jumbotron container">
+  <p> Creator: <%= @event.creator.username%></p>
+  <p> Description: <%= @event.description%></p>
+  <p> Date: <%= @event.date%></p>
+ 
+ <div class="col-md-6">
+    <p class="underline">Attendee </p>
+    
+      <% @event.attendee.each do |a|%>
+    
+       <p>&bull;  <%= a.username%> </p>
+      
       <% end %>
-    </ul>
-  </li>
+  
+  </div>
 
-</ul>
+  <div class="col-md-6">
+    <p class="underline">Invitee </p>
+    
+      <% @event.invitees.each do |a|%>
+    
+        <p>&bull;  <%= a.username%> </p>
+      
+      <% end %>
+    
+  </div>
+</div>

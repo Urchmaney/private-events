@@ -1,9 +1,11 @@
-<%= form_for @event do |e|%>
-<%= e.label :description%>
-<%= e.text_field :description%>
-<br />
-<%= e.label :date%>
-<%= e.date_field :date%>
-<br />
-<%= e.submit 'Create new event'%>
-<% end %>
+<div class="col-md-4 col-md-offset-4">
+    <%= form_for @event do |e|%>
+    <%= e.label "Description",:description %>
+    <%= e.text_area :description,class: 'form-control' %>
+    <br />
+    <%= e.label "Date", :date %>
+    <%= e.date_field :date,class: 'form-control' %>
+    <br />
+    <%= e.submit 'Create new event',class: 'form-control btn-primary'%>
+    <% end %>
+</div>
