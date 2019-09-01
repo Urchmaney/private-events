@@ -1,24 +1,9 @@
-# README
+# PRIVATE-EVENT
+- Is a ruby on rails project for event creation and invitation platform. 
+### Authors
+- Samuel Cornet -- [User Github link](https://github.com/CornetS28)
+- Kingsley uche-- [User Github link](https://github.com/Urchmaney)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Project link:
+This project is available on [Github link](https://github.com/Urchmaney/private-events)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
