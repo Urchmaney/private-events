@@ -25,7 +25,7 @@ class InvitationsController < ApplicationController
     if @attance.save
       flash[:success] = 'Successfully accepted invitation'
     else
-        flash[:danger] = 'Issues accepting invitation'
+      flash[:danger] = 'Issues accepting invitation'
     end
     redirect_to action: 'index'
   end

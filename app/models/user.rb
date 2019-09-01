@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :invitation_user_id
   has_many :event_invitations, through: :invitations, source: :invitation_event
 
-  def previous_events       
+  def previous_events
     attended_event.where('date <= ?', Time.now)
   end
 
