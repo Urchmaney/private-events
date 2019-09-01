@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   before_save { email.downcase! }
@@ -12,10 +14,10 @@ class User < ApplicationRecord
   has_many :event_invitations, through: :invitations, source: :invitation_event
 
   def previous_events       
-    self.attended_event.where('date <= ?', Time.now) 
+    attended_event.where('date <= ?', Time.now)
   end
-  
+
   def upcoming_events
-    self.attended_event.where('date > ?', Time.now) 
+    attended_event.where('date > ?', Time.now)
   end
 end

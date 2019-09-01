@@ -17,22 +17,22 @@ class InvitationsController < ApplicationController
   end
 
   def index
-    @invitation = current_user.event_invitations        
+    @invitation = current_user.event_invitations
   end
 
   def accept
-    @attance= EventAttendance.new(event_attendee_id: current_user.id,attendee_event_id: params[:event][:id])
+    @attance = EventAttendance.new(event_attendee_id: current_user.id, attendee_event_id: params[:event][:id])
     if @attance.save
-        flash[:success] = 'Successfully accepted invitation'
+      flash[:success] = 'Successfully accepted invitation'
     else
         flash[:danger] = 'Issues accepting invitation'
     end
-    redirect_to :action => 'index'
+    redirect_to action: 'index'
   end
 
   private
 
   def invitation_params
     params.require(:invitation).permit(:invitation_event_id, :invitation_user_id)
-  end    
+  end
 end
