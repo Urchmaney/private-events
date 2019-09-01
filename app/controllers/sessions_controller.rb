@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class SessionsController < ApplicationController
   before_action :prevent_access_login, only: %i[new create]
@@ -13,8 +14,6 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
-
-  
 
   def destroy
     logout

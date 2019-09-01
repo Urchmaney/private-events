@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[show index]
-
   def index
     @all_users = User.all
   end
