@@ -12,4 +12,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def is_logged_in?
+    !session[:id].nil?
+  end
+
+  # Log in as a particular user.
+  def log_in_as(user)
+    session[:id] = 1
+  end
 end
