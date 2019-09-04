@@ -7,6 +7,7 @@ class InvitationsController < ApplicationController
 
   def create
     return unless invitation_params[:invitation_user_id] != current_user.id
+    
     @invitation = Invitation.new(invitation_params)
     if @invitation.save
       flash[:success] = 'Successfully sent invitation'
