@@ -6,12 +6,13 @@
     <span class="event-date"><%= e.date%></span><br>
      <span class="event-description"><%= e.description%></span>
     <%= link_to 'See event', event_path(e)%> 
-    <%=form_for(e, url: accept_path) do |f|%>
-        <%=f.hidden_field :id%>
-        <%= f.submit 'Accept' , class: 'btn btn-success float-right'%>
-    <%end%>
-    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+    <%if !e.attendee.exists?(current_user.id)%>
+        <%=form_for(e, url: accept_path) do |f|%>
+          <%=f.hidden_field :id%>      
+          <%= f.submit 'Accept' , class: 'btn btn-success float-right' %>
+      <%end%>
+    <%end%>  
   </li>
-  <% end %>
+  <%end%>
 </ul>
 </div>

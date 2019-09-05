@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :invitation_user_id
   has_many :event_invitations, through: :invitations, source: :invitation_event
   scope :all_except_user, ->(user) { where('id != ?', user.id) }
+  scope :exlude_users, ->(user_array) { except(user_array) }
 end

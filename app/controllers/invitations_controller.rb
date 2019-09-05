@@ -1,20 +1,24 @@
 # frozen_string_literal: true
 
 class InvitationsController < ApplicationController
+  include InvitationsHelper
   def new
     @invitation = Invitation.new
   end
 
   def create
-    return unless invitation_params[:invitation_user_id] != current_user.id
-
-    @invitation = Invitation.new(invitation_params)
-    if @invitation.save
-      flash[:success] = 'Successfully sent invitation'
-      redirect_to current_user
+    if !Invitation.exists?(invitation_params)    
+      @invitation = Invitation.new(invitation_params)
+      if @invitation.save
+        flash[:success] = 'Successfully sent invitation'
+        redirect_to current_user
+      else
+        flash[:danger] = 'Please select valid input from drop down'
+        render :new
+      end
     else
-      flash[:danger] = 'Please select valid input from drop down'
-      render :new
+      flash[:danger] = 'Already attending event'
+      redirect_to action: 'new'
     end
   end
 

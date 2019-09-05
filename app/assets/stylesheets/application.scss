@@ -83,7 +83,7 @@
 .event-container{
     list-style: none;
     padding:0;
-    position: relative;
+    
 
     .event-date{
         font-size:10px;
@@ -98,6 +98,7 @@
         border-radius: 5px;
         padding: 5px;
         margin-top:5px;
+        position: relative;
     }
     a{
         float:right;
