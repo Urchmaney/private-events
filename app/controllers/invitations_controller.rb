@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    if !Invitation.exists?(invitation_params)    
+    if !Invitation.exists?(invitation_params)
       @invitation = Invitation.new(invitation_params)
       if @invitation.save
         flash[:success] = 'Successfully sent invitation'
