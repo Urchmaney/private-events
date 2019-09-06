@@ -17,7 +17,7 @@ class ActiveSupport::TestCase
   end
 
   # Log in as a particular user.
-  def log_in_as
-    session[:id] = 1
+  def log_in_as(user)
+    post '/login', params: {'session' => {'name' => user.username} }
   end
 end
