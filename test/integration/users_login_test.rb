@@ -13,7 +13,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
   end
 
-  test 'Event page when logged in' do    
+  test 'Event page when logged in' do
     log_in_as @user
     get '/events/new'
     assert_template 'events/new'
