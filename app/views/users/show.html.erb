@@ -1,0 +1,42 @@
+
+<div class="col-md-offset-2 col-md-4">
+<h3>Your Events</h3>
+<ul class="event-container">
+  <% @events.each do |e|%>
+  <li>
+  <span class="event-date"><%= e.date%></span><br>
+     <span class="event-description"><%= e.description%></span>
+    <%= link_to 'See event', event_path(e)%> 
+    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+   </li>
+  <% end %>
+
+</ul>
+</div>
+
+<div class="col-md-4">
+  <h3 class="text-center">Events Attend</h3>
+  <h4 class="underline">Upcoming Events </h4>
+  <ul class="event-container">
+  <% @upcoming_events.each do |e|%>
+  <li>
+    <span class="event-date"><%= e.date%></span><br>
+     <span class="event-description"><%= e.description%></span>
+    <%= link_to 'See event', event_path(e)%> 
+    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+  </li>
+  <% end %>
+</ul>
+
+ <h4 class="underline">Past Events </h4>
+  <ul class="event-container">
+  <% @prev_events.each do |e|%>
+  <li>
+    <span class="event-date"><%= e.date%></span><br>
+     <span class="event-description"><%= e.description%></span>
+    <%= link_to 'See event', event_path(e)%> 
+    <%# <%= link_to 'Attend this event', attendances_path(:event_id => e.id), method: :post %>
+  </li>
+  <% end %>
+</ul>
+</div>
